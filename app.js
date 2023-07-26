@@ -21,8 +21,9 @@ app.use(express.static(path.join(__dirname,"./client/build")));
 app.get("*",(req,res)=>{
   res.sendFile(path.join(__dirname,"./client/build"));
 })
-app.use(require('./router/router'));
 require('./db/conn');
+app.use(require('./router/router'));
+
 
 
 

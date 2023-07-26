@@ -1,5 +1,7 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import Card from 'react-bootstrap/Card';
+
 
 const EventList = () => {
   const [getEvent, setGetEvent] = useState([]);
@@ -39,6 +41,22 @@ const EventList = () => {
                      <p>Agenda</p> {ele.agenda}
                     </div>
                   </div>
+                  {/* <Card style={{width: ""}}>
+                    <Card.Header>Quote</Card.Header>
+                    <Card.Body>
+                      <blockquote className="blockquote mb-0">
+                        <p>
+                          {' '}
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+                          posuere erat a ante.{' '}
+                        </p>
+                        <footer className="blockquote-footer">
+                          Someone famous in <cite title="Source Title">Source Title</cite>
+                        </footer>
+                      </blockquote>
+                    </Card.Body>
+                  </Card> */}
+
                 </div>
                 </>
               )

@@ -11,7 +11,6 @@ router.post("/login", async (req, res) => {
         if (!email || !password) {
             res.status(400).json({ "error": "please fill credentails" });  //400 for bad request
         }
-
         const userExit = await SignUp.findOne({ email: email });
         console.log(userExit);
         if (userExit) {
@@ -36,7 +35,6 @@ router.post("/login", async (req, res) => {
 router.post("/signup", async (req, res) => {
     try {
         const { email, password, cpassword } = req.body;
-        console.log(req.body);
         if (!email || !password || !cpassword) {
             res.status(401).json({ "error": "please fill credentails" });
         }
@@ -46,7 +44,6 @@ router.post("/signup", async (req, res) => {
         if (!userExit) {
             if (password === cpassword) {
                 const newUser = await SignUp({ email, password, cpassword });
-                console.log(newUser);
                 const addUser = await newUser.save();
 
                 if (addUser)
@@ -138,7 +135,6 @@ router.get('/eventlist', async (req, res) => {
     try {
         if (req.session.email) {
             const eventlist = await EventRegister.find();
-            console.log(eventlist);
             if (eventlist)
                 res.send(eventlist);
 
