@@ -29,9 +29,9 @@ app.use(express.static(path.join(__dirname,"./client/build")));
 app.get("*",(req,res)=>{
   res.sendFile(path.join(__dirname,"./client/build"));
 })
-
-app.use(require('./router/auth'));
 require('./db/conn');
+app.use(require('./router/router'));
+
 
 app.listen(8000,(req,res)=>{
     console.log("server is running at 8000");
